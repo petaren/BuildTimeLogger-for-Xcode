@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D253667720FE6D8800C71EDD /* CommandLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253667620FE6D8800C71EDD /* CommandLineParser.swift */; };
 		DA29A7651E808BC10071865D /* HardwareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29A7641E808BC10071865D /* HardwareInfo.swift */; };
 		DA29A7671E808BDB0071865D /* SystemInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29A7661E808BDB0071865D /* SystemInfoManager.swift */; };
 		DA29A7691E80901E0071865D /* DevToolsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29A7681E80901E0071865D /* DevToolsInfo.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D253667620FE6D8800C71EDD /* CommandLineParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineParser.swift; sourceTree = "<group>"; };
 		DA29A7641E808BC10071865D /* HardwareInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardwareInfo.swift; sourceTree = "<group>"; };
 		DA29A7661E808BDB0071865D /* SystemInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoManager.swift; sourceTree = "<group>"; };
 		DA29A7681E80901E0071865D /* DevToolsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevToolsInfo.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				DA362A9B1E5E089600660B80 /* BuildTimeLogger-Bridging-Header.h */,
 				DA5B62591E67406E009DC651 /* BuildTimeLoggerApp.swift */,
 				DA5B625D1E6740E5009DC651 /* XcodeDatabase+BuildHistoryEntry.swift */,
+				D253667620FE6D8800C71EDD /* CommandLineParser.swift */,
 			);
 			path = BuildTimeLogger;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				DA362A931E5E076900660B80 /* main.swift in Sources */,
 				DACC7B3C1E70571A00D43CB7 /* DataParser.swift in Sources */,
 				DA29A7671E808BDB0071865D /* SystemInfoManager.swift in Sources */,
+				D253667720FE6D8800C71EDD /* CommandLineParser.swift in Sources */,
 				DA362AA31E5E40DB00660B80 /* UserSettings.swift in Sources */,
 				DA362AA11E5E403700660B80 /* DerivedDataManager.swift in Sources */,
 				DA5B625E1E6740E5009DC651 /* XcodeDatabase+BuildHistoryEntry.swift in Sources */,

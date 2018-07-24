@@ -10,6 +10,7 @@ import Foundation
 
 extension XcodeDatabase {
 	var buildHistoryEntry: BuildHistoryEntry {
-		return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(), username: NSUserName())
+        let username = CommandLine.usernameOption.isSet ? NSUserName() : "N/A"
+        return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(), username: username)
 	}
 }

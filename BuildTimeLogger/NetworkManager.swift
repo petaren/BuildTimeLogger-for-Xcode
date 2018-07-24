@@ -48,6 +48,11 @@ final class NetworkManager {
 				print("error: \(error)")
 			}
 
+            if CommandLine.verboseOption.isSet {
+                let response = response as! HTTPURLResponse
+                print("HTTP URL Response: \(response.statusCode)")
+            }
+
 			semaphore.signal()
 		}
 		task.resume()

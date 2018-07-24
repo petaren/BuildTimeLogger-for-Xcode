@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2308AB72106DC4500D8D7BA /* MACAddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2308AB62106DC4500D8D7BA /* MACAddressManager.swift */; };
 		D253667720FE6D8800C71EDD /* CommandLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253667620FE6D8800C71EDD /* CommandLineParser.swift */; };
 		DA29A7651E808BC10071865D /* HardwareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29A7641E808BC10071865D /* HardwareInfo.swift */; };
 		DA29A7671E808BDB0071865D /* SystemInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA29A7661E808BDB0071865D /* SystemInfoManager.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D2308AB62106DC4500D8D7BA /* MACAddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MACAddressManager.swift; sourceTree = "<group>"; };
 		D253667620FE6D8800C71EDD /* CommandLineParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLineParser.swift; sourceTree = "<group>"; };
 		DA29A7641E808BC10071865D /* HardwareInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HardwareInfo.swift; sourceTree = "<group>"; };
 		DA29A7661E808BDB0071865D /* SystemInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoManager.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				DACC7B3B1E70571A00D43CB7 /* DataParser.swift */,
 				DACC7B401E705A9400D43CB7 /* XcodeDatabaseManager.swift */,
 				DA29A7661E808BDB0071865D /* SystemInfoManager.swift */,
+				D2308AB62106DC4500D8D7BA /* MACAddressManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				DACC7B391E70538D00D43CB7 /* Result.swift in Sources */,
 				DA5B62581E67402B009DC651 /* BuildHistoryEntry.swift in Sources */,
 				DA29A7691E80901E0071865D /* DevToolsInfo.swift in Sources */,
+				D2308AB72106DC4500D8D7BA /* MACAddressManager.swift in Sources */,
 				DA362AA51E5E410300660B80 /* File.swift in Sources */,
 				DACC7B3A1E70538D00D43CB7 /* ResultProtocol.swift in Sources */,
 				DA5B625A1E67406E009DC651 /* BuildTimeLoggerApp.swift in Sources */,

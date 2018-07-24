@@ -20,7 +20,7 @@ final class NetworkManager {
 	}
 
 	// TODO: use single BuildHistoryEntry object as an argument.
-	func sendData(username: String, timestamp: Int, buildTime: Int, schemeName: String, systemInfo: SystemInfo?) {
+    func sendData(username: String, timestamp: Int, buildTime: Int, schemeName: String, systemInfo: SystemInfo?, MACAddress: String) {
 		let semaphore = DispatchSemaphore(value: 0)
 
 		var request = URLRequest(url: remoteStorageURL)
@@ -29,7 +29,8 @@ final class NetworkManager {
 			BuildHistoryEntryKey.username.rawValue: username,
 			BuildHistoryEntryKey.timestamp.rawValue: timestamp,
 			BuildHistoryEntryKey.buildTime.rawValue: buildTime,
-			BuildHistoryEntryKey.schemeName.rawValue: schemeName
+			BuildHistoryEntryKey.schemeName.rawValue: schemeName,
+            BuildHistoryEntryKey.MACAddress.rawValue: MACAddress
 		]
 
 		if let systemInfo = systemInfo {

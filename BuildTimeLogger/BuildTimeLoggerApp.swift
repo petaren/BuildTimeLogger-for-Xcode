@@ -30,30 +30,45 @@ final class BuildTimeLoggerApp {
 	}
 
 	func run() {
-		switch CommandLine.arguments.count {
-		case 2:
-			print("Updating local build history...")
-			updateBuildHistory()
-			showNotification()
+        if CommandLine.helpOption.isSet {
+            print("usage: BuildTimeLogger [-p] [-f] [remote url]\n")
+            for option in CommandLine.allOptions {
+                print(option.helpDescription)
+            }
+            return
+        }
 
-			guard let buildHistory = buildHistory, let latestBuildData = buildHistory.last else {
-				return
-			}
+        if CommandLine.pushOption.isSet {
+            guard let pushURL = CommandLine.pushOption.value else {
+                print("Invalid argument for parameter \(CommandLine.pushOption.argument ?? "")")
+                return
+            }
 
-			print("Storing data remotely...")
-			if let remoteStorageURL = URL(string: CommandLine.arguments[1]) {
-				storeDataRemotely(buildData: latestBuildData, atURL: remoteStorageURL)
-			}
-		case 3:
-			print("Fetching remote data...")
-			if let remoteStorageURL = URL(string: CommandLine.arguments[1]) {
-				fetchRemoteData(atURL: remoteStorageURL)
-			}
-		default:
-			print("Updating local build history...")
-			updateBuildHistory()
-			showNotification()
-		}
+            print("Updating local build history...")
+            updateBuildHistory()
+            showNotification()
+
+            guard let buildHistory = buildHistory, let latestBuildData = buildHistory.last else {
+                // TODO: Add error printing
+                return
+            }
+
+            print("Storing data remotely...")
+            storeDataRemotely(buildData: latestBuildData, atURL: pushURL)
+
+        } else if CommandLine.fetchOption.isSet {
+            guard let fetchURL = CommandLine.fetchOption.value else {
+                print("Invalid argument for parameter \(CommandLine.fetchOption.argument ?? "")")
+                return
+            }
+
+            print("Fetching remote data...")
+            fetchRemoteData(atURL: fetchURL)
+        } else {
+            print("Updating local build history...")
+            updateBuildHistory()
+            showNotification()
+        }
 	}
 
 	private func fetchRemoteData(atURL url: URL) {
@@ -70,7 +85,7 @@ final class BuildTimeLoggerApp {
 
 	private func storeDataRemotely(buildData: BuildHistoryEntry, atURL url: URL) {
 		let systemInfo = systemInfoManager.read()
-		let networkManager = NetworkManager(remoteStorageURL: url)
+        let networkManager = NetworkManager(remoteStorageURL: url)
 		networkManager.sendData(username: buildData.username, timestamp: Int(NSDate().timeIntervalSince1970), buildTime: buildData.buildTime, schemeName: buildData.schemeName, systemInfo: systemInfo)
 	}
 

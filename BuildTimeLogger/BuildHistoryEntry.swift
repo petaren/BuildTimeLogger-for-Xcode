@@ -13,6 +13,7 @@ enum BuildHistoryEntryKey: String {
 	case schemeName
 	case timestamp
 	case username
+    case MACAddress
 }
 
 struct BuildHistoryEntry {
@@ -20,13 +21,15 @@ struct BuildHistoryEntry {
 	let schemeName: String
 	let date: Date
 	let username: String
+    let MACAddress: String
 
 	var serialized: [String: Any] {
 		return [
 			BuildHistoryEntryKey.buildTime.rawValue: buildTime,
 			BuildHistoryEntryKey.schemeName.rawValue: schemeName,
 			BuildHistoryEntryKey.timestamp.rawValue: date.timeIntervalSince1970,
-			BuildHistoryEntryKey.username.rawValue: username
+			BuildHistoryEntryKey.username.rawValue: username,
+            BuildHistoryEntryKey.MACAddress.rawValue: MACAddress,
 		]
 	}
 }

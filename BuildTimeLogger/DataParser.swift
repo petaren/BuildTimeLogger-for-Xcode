@@ -67,13 +67,14 @@ struct DataParser {
 				let timestampStr = record[BuildHistoryEntryKey.timestamp.rawValue],
 				let timestamp = TimeInterval(timestampStr),
 				let buildTimeStr = record[BuildHistoryEntryKey.buildTime.rawValue],
-				let buildTime = Int(buildTimeStr) else {
+				let buildTime = Int(buildTimeStr),
+                let MACAddress = record[BuildHistoryEntryKey.MACAddress.rawValue] else {
 				return nil
 			}
 
 			// TODO: This needs to stay non required here for now, as it's a newly added param and doesn't exist in older records.
 			let schemeName = record[BuildHistoryEntryKey.schemeName.rawValue] ?? ""
-			return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(timeIntervalSince1970: timestamp), username: username)
+            return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(timeIntervalSince1970: timestamp), username: username, MACAddress: MACAddress)
 		})
 	}
 }

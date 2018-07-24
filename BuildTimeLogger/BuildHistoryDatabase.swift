@@ -26,11 +26,12 @@ struct BuildHistoryDatabase {
 		let buildHistory: [BuildHistoryEntry] = buildHistorySerialized.flatMap({
 			if let buildTime = $0[BuildHistoryEntryKey.buildTime.rawValue] as? Int,
 				let schemeName = $0[BuildHistoryEntryKey.schemeName.rawValue] as? String,
-				let timestamp = $0[BuildHistoryEntryKey.timestamp.rawValue] as? TimeInterval {
+				let timestamp = $0[BuildHistoryEntryKey.timestamp.rawValue] as? TimeInterval,
+                let MACAddress = $0[BuildHistoryEntryKey.MACAddress.rawValue] as? String {
 
 				// TODO: Old entries in user defaults don't have username, so this stays as not required here.
 				let username = $0[BuildHistoryEntryKey.username.rawValue] as? String ?? "unknown"
-				return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(timeIntervalSince1970: timestamp), username: username)
+                return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(timeIntervalSince1970: timestamp), username: username, MACAddress: MACAddress)
 			}
 
 			return nil

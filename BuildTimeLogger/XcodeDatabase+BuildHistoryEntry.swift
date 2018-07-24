@@ -11,6 +11,6 @@ import Foundation
 extension XcodeDatabase {
 	var buildHistoryEntry: BuildHistoryEntry {
         let username = CommandLine.usernameOption.isSet ? NSUserName() : "N/A"
-        return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(), username: username)
+        return BuildHistoryEntry(buildTime: buildTime, schemeName: schemeName, date: Date(), username: username, MACAddress: MACAddressManager.MACAddress ?? "")
 	}
 }

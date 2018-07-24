@@ -86,7 +86,7 @@ final class BuildTimeLoggerApp {
 	private func storeDataRemotely(buildData: BuildHistoryEntry, atURL url: URL) {
 		let systemInfo = systemInfoManager.read()
         let networkManager = NetworkManager(remoteStorageURL: url)
-		networkManager.sendData(username: buildData.username, timestamp: Int(NSDate().timeIntervalSince1970), buildTime: buildData.buildTime, schemeName: buildData.schemeName, systemInfo: systemInfo)
+        networkManager.sendData(username: buildData.username, timestamp: Int(NSDate().timeIntervalSince1970), buildTime: buildData.buildTime, schemeName: buildData.schemeName, systemInfo: systemInfo, MACAddress: MACAddressManager.MACAddress ?? "")
 	}
 
 	private func showNotification() {
